@@ -1,0 +1,68 @@
+steps:
+  - step:
+      - command: focus-application
+        name: Google Chrome
+      - command: hover-text
+        description: Search Google or type a URL
+        action: click
+      - command: type
+        string: https://www.epicgames.com/id/login
+      - command: press-keys
+        keys:
+          - enter
+      - step:
+          - command: focus-application
+            name: Google Chrome
+          - command: hover-text
+            description: Email Address
+            action: click
+          - command: type
+            string: orlando@example.com
+          - command: hover-text
+            description: Password
+            action: click
+          - command: type
+            string: 123
+          - command: hover-text
+            description: Login
+            action: click
+
+      - step:
+          - command: focus-application
+            name: Google Chrome
+          - command: press-keys
+            keys:
+              - command
+              - t
+          - command: type
+            string: https://store.epicgames.com/en-US/free-games
+          - command: press-keys
+            keys:
+              - enter
+      - command: focus-application
+        name: Google Chrome
+      - command: hover-text
+        description: Free now
+        action: click
+  - step:
+      - command: focus-application
+        name: Google Chrome
+      - command: hover-text
+        description: Get
+        action: click
+  - step:
+      - command: focus-application
+        name: Google Chrome
+      - command: hover-text
+        description: Continue
+        action: click  
+  - step:
+      - command: focus-application
+        name: Google Chrome
+      - command: hover-text
+        description: Place order
+        action: click
+  - step:
+      - command: assert
+        description: A Thank You screen
+
