@@ -10,53 +10,47 @@ steps:
       - command: press-keys
         keys:
           - enter
-      - step:
-          - command: focus-application
-            name: Google Chrome
-          - command: hover-text
-            description: Email Address
-            action: click
-          - command: type
-            string: orlando@example.com
-          - command: hover-text
-            description: Password
-            action: click
-          - command: type
-            string: 123
-          - command: hover-text
-            description: Login
-            action: click
-
-      - step:
-          - command: focus-application
-            name: Google Chrome
-          - command: press-keys
-            keys:
-              - command
-              - t
-          - command: type
-            string: https://store.epicgames.com/en-US/free-games
-          - command: press-keys
-            keys:
-              - enter
+      - command: focus-application
+        name: Google Chrome
+      - command: hover-text
+        description: Email Address
+        action: click
+      - command: type
+        string: frampone@gmail.com
+      - command: hover-text
+        description: Password
+        action: click
+      - command: type
+        string: ${{secrets.EPIC_PW}}
+      - command: hover-text
+        description: Login
+        action: click
+      - command: focus-application
+        name: Google Chrome
+      - command: press-keys
+        keys:
+          - command
+          - t
+      - command: type
+        string: https://store.epicgames.com/en-US/free-games
+      - command: press-keys
+        keys:
+          - enter
       - command: focus-application
         name: Google Chrome
       - command: hover-text
         description: Free now
         action: click
-  - step:
       - command: focus-application
         name: Google Chrome
       - command: hover-text
         description: Get
         action: click
-  - step:
       - command: focus-application
         name: Google Chrome
       - command: hover-text
         description: Continue
         action: click  
-  - step:
       - command: focus-application
         name: Google Chrome
       - command: hover-text
@@ -64,5 +58,5 @@ steps:
         action: click
   - step:
       - command: assert
-        description: A Thank You screen
+        description: A Thank You screen appeared
 
