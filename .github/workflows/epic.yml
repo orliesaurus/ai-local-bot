@@ -1,0 +1,31 @@
+name: TestDriver.ai Epic Marketplace - Framework
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+    workflow_dispatch: null
+
+permissions:
+    contents: read # To allow the action to read repository contents
+    pull-requests: write # To allow the action to create/update pull request comments
+
+
+jobs:
+  test:
+    name: "TestDriver"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dashcamio/testdriver@main
+        id: testdriver
+        with:
+          version: v3.5.6
+          key: ${{secrets.DASHCAM_API_KEY}}
+          prerun: |
+            npm install dashcam-chrome --save
+            /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --start-maximized --load-extension=./node_modules/dashcam-chrome/build/ 1>/dev/null 2>&1 &
+            exit       
+          prompt: |
+            1. /run /Users/ec2-user/actions-runner/_work/testdriver/testdriver/.testdriver/order.yml
