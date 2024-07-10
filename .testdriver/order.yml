@@ -56,7 +56,6 @@ steps:
       - command: hover-text
         description: Place order
         action: click
-  - step:
       - command: assert
         description: A Thank You screen appeared
 
